@@ -42,14 +42,18 @@ class Car{
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 	// write your code here
         Person newPerson=new Person("Ionut", 29);
         Car bmw=new Car("BMW", 2018, newPerson);
         System.out.println(bmw.getBrand());
         System.out.println("Pasagerul din masina este "+bmw.getPerson());
-        //bmw=null;
-        //System.out.println(bmw.getBrand());
-        //System.out.println(newPerson);   //Instanta de tip Person nu este stearsa
+        try{
+            bmw=null;
+            System.out.println(bmw.getBrand());
+        }catch (NullPointerException e) {
+            System.out.println("Null Pointer Exception: " + e.getMessage());
+    }
+        System.out.println(newPerson);   //Instanta de tip Person nu este stearsa
     }
 }
